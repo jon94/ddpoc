@@ -16,7 +16,7 @@
 - Obtain APP Key from https://app.datadoghq.com/organization-settings/application-keys
 - This will be used in the step below when creating datadog-secret
 - replace clusterName (e.g. poccluster)
-- replace <NAMEPSPACE1> and <NAMESPACE2> with the namespace that you want to instrument
+- replace `<NAMESPACE1>` and `<NAMESPACE2>` with the namespace that you want to instrument
 
 ### Creating Datadog API Key and APP Key as Kubernetes Secret
 ```

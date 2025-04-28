@@ -39,4 +39,5 @@ helm upgrade datadog datadog/datadog -n datadog -f /dir/folder1/values.yaml
 ```
 
 ### Validation
-Once done, you should be able to view information on https://app.datadoghq.com/orchestration/explorer/pod?explorer-na-groups=false 
+- Once done, you should be able to view information on https://app.datadoghq.com/orchestration/explorer/pod?explorer-na-groups=false 
+- Restart your APM service after successfully seeing all the datadog agent start up. This is required for APM installation to work. 

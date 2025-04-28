@@ -1,9 +1,9 @@
 # EKS Agent Installation
 - Official Datadog Document: https://docs.datadoghq.com/containers/kubernetes/installation/?tab=helm#installation
 
-### eks-values.yaml
+### values.yaml
 
-- Feel free to use the eks-values.yaml file that is provided in the repo.
+- Feel free to use the values.yaml file that is provided in the repo.
 - This configuration will turn on Infra, APM Collection, Log Collection, Network performance Monitoring, Universal Service Monitoring
 
 # Pre-req for APM

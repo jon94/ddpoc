@@ -8,6 +8,11 @@
 - Feel free to use the eks-values.yaml file that is provided in the repo.
 - This configuration will turn on Infra, APM Collection, Log Collection, Network performance Monitoring, Universal Service Monitoring
 
+# Pre-req for APM
+- Make sure tracer related to Apache Skywalking is removed on the services for APM testing. 2 APM Tracers cannot coexist together.
+- Please ensure this port 8000 is also allowed according to the document here (no action needed if there is no rules)
+    - https://docs.datadoghq.com/containers/troubleshooting/admission-controller/?tab=helm#amazon-elastic-kubernetes-service-eks 
+
 ### Things take note for values.yaml
 - Obtain API Key from https://app.datadoghq.com/organization-settings/api-keys
 - Obtain APP Key from https://app.datadoghq.com/organization-settings/application-keys

@@ -6,6 +6,7 @@
 ## eks-values.yaml
 
 - Feel free to use the eks-values.yaml file that is provided in the repo.
+- This configuration will turn on Infra, APM Collection, Log Collection, Network performance Monitoring, Universal Service Monitoring
 
 ### Creating Datadog API Key and APP Key as Kubernetes Secret
 ```
@@ -26,3 +27,6 @@ helm install datadog datadog/datadog -n datadog -f /dir/toyour/values.yaml
 ```
 helm upgrade datadog datadog/datadog -n datadog -f /dir/toyour/values.yaml
 ```
+
+### Validation
+Once done, you should be able to view information on https://app.datadoghq.com/orchestration/explorer/pod?explorer-na-groups=false 

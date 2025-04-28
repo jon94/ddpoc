@@ -2,10 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    tags.datadoghq.com/env: dev  # Add here for unified service tagging
-    tags.datadoghq.com/service: adservice # Add here for unified service tagging
+    tags.datadoghq.com/env: poc  # Add here for unified service tagging
+    tags.datadoghq.com/service: login-service # Add here for unified service tagging
     tags.datadoghq.com/version: 1.0.0 # Add here for unified service tagging
-  name: adservice
+  name: login
   namespace: default
 spec:
   progressDeadlineSeconds: 600
@@ -13,7 +13,7 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: adservice
+      app: login
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -25,9 +25,9 @@ spec:
         admission.datadoghq.com/java-lib.version: v1.48.2 # Add here for APM lib injection
       labels:
         admission.datadoghq.com/enabled: "true" # Add here for APM lib injection
-        app: adservice
-        tags.datadoghq.com/env: dev   # Add here for unified service tagging
-        tags.datadoghq.com/service: adservice    # Add here for unified service tagging
+        app: login
+        tags.datadoghq.com/env: poc   # Add here for unified service tagging
+        tags.datadoghq.com/service: login-service  # Add here for unified service tagging 
         tags.datadoghq.com/version: 1.0.0    # Add here for unified service tagging
     spec:
       containers:

@@ -3,10 +3,18 @@
 - Please go through this [guided tour](https://datadog.navattic.com/ui10b8i) to see how you can install and validate the agent on a kubernetes based set up, *I recommend using Helm instead of Operator*.
 - Official Datadog Document: https://docs.datadoghq.com/containers/kubernetes/installation/?tab=helm#installation
 
-## eks-values.yaml
+### eks-values.yaml
 
 - Feel free to use the eks-values.yaml file that is provided in the repo.
 - This configuration will turn on Infra, APM Collection, Log Collection, Network performance Monitoring, Universal Service Monitoring
+
+
+
+### Things take note for values.yaml
+- Obtain API Key from https://app.datadoghq.com/organization-settings/api-keys
+- Obtain APP Key from https://app.datadoghq.com/organization-settings/application-keys
+- This will be used in the step below when creating datadog-secret
+- replace clusterName (e.g. poccluster)
 
 ### Creating Datadog API Key and APP Key as Kubernetes Secret
 ```
@@ -18,14 +26,14 @@ kubectl create secret generic datadog-secret -n datadog --from-literal api-key=<
 ```
 helm repo add datadog https://helm.datadoghq.com
 helm repo update
-helm install datadog datadog/datadog -n datadog -f /dir/toyour/values.yaml
+helm install datadog datadog/datadog -n datadog -f /dir/folder1/values.yaml
 ```
 
 ### If there are any changes to values.yaml
 - Make changes to values.yaml
 - Run the following after changes.
 ```
-helm upgrade datadog datadog/datadog -n datadog -f /dir/toyour/values.yaml
+helm upgrade datadog datadog/datadog -n datadog -f /dir/folder1/values.yaml
 ```
 
 ### Validation

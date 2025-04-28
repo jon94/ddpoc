@@ -1,0 +1,44 @@
+# Datadog Agent with Logs, APM, Processes, and System Probe enabled
+
+targetSystem: "linux"
+datadog:
+  # apiKey: <DATADOG_API_KEY>
+  # appKey: <DATADOG_APP_KEY>
+  apiKeyExistingSecret: datadog-secret
+  appKeyExistingSecret: datadog-secret  
+  ## The name must be unique and must be dot-separated tokens with the following restrictions:
+  ## * Lowercase letters, numbers, and hyphens only.
+  ## * Must start with a letter.
+  ## * Must end with a number or a letter.
+  ## * Overall length should not be higher than 80 characters.
+  clusterName: <CLUSTER_NAME>
+  site: datadoghq.com
+  logs:
+    enabled: true
+    containerCollectAll: true
+    containerCollectUsingFiles: true
+  apm:
+    portEnabled: false    
+    socketEnabled: true
+    instrumentation:
+      enabled: true
+      targets:
+        - name: "namespace" # This is just a metadata, can be any name
+          namespaceSelector:
+            matchNames:
+              - "<NAMESPACE1>" #this is the namespace of your choice, datadog will instrument all the services
+              - "<NAMESPACE2>"
+          ddTraceVersions:
+            java: "default"
+          ddTraceConfigs:
+            - name: "DD_PROFILING_ENABLED"  ## profiling is enabled for all services in this namespace
+              value: "true"
+            - name: "DD_LOGS_INJECTION"
+              value: "true"        
+  processAgent:
+    enabled: true
+    processCollection: true
+  networkMonitoring:
+    enabled: true
+  serviceMonitoring:
+    enabled: true        

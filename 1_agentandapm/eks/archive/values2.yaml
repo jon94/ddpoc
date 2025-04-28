@@ -13,11 +13,6 @@ datadog:
   ## * Overall length should not be higher than 80 characters.
   clusterName: <CLUSTER_NAME>
   site: datadoghq.com
-  env:
-    - name: DD_APM_COMPUTE_STATS_BY_SPAN_KIND
-      value: true 
-    - name: DD_APM_PEER_TAGS_AGGREGATION
-      value: true
   logs:
     enabled: true
     containerCollectAll: true

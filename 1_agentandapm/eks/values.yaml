@@ -41,4 +41,7 @@ datadog:
   networkMonitoring:
     enabled: true
   serviceMonitoring:
-    enabled: true        
+    enabled: true
+  prometheusScrape:
+    enabled: true
+    serviceEndpoints: true             

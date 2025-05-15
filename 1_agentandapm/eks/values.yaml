@@ -47,7 +47,7 @@ datadog:
     serviceEndpoints: true
     additionalConfigs:
       - configurations:
-          - max_returned_metrics: 10000
+          - max_returned_metrics: 100000
           - exclude_metrics:
               - node_.*
               - coredns_.*

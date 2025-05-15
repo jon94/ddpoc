@@ -48,3 +48,5 @@ datadog:
     additionalConfigs:
       - configurations:
           - max_returned_metrics: 10000
+          - exclude_metrics:
+              - node_.*          
